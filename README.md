@@ -1,3 +1,5 @@
+![Simulator Screen Recording - iPhone 16 - 2025-10-15 at 01 24 19](https://github.com/user-attachments/assets/872ccd7f-0db8-493d-9a1c-8f9f33e78d3d) ![Запись экрана 2025-10-15 в 01 14 45](https://github.com/user-attachments/assets/5b74e14f-c36a-4f8b-8541-86fe89f4943f)
+
 # Тестовое задание: React Native приложение (CLI)
 
 Создать небольшое приложение на **React Native (CLI, без Expo)**, которое показывает список доступных смен для подработки, полученных по геолокации пользователя.
