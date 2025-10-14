@@ -17,6 +17,7 @@
     "dayjs": "^1.11.18",
     "react": "19.1.1",
     "react-native": "0.82.0",
+    "react-native-bootsplash": "^6.3.11",
     "react-native-permissions": "^5.4.2",
     "react-native-safe-area-context": "^5.5.2",
     "react-native-screens": "^4.16.0",
@@ -45,5 +46,6 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

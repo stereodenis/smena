@@ -38,17 +38,11 @@ const ShiftsScreen = ({ navigation }: TRootScreenProps<PATHS.SHIFTS>) => {
 
   }, []);
 
-  useEffect(() => {
-    if (location) {
-      fetchShifts(location.latitude, location.longitude)
-    }
-  }, [location]);
-
-
-  const fetchShifts = async (latitude: number, longitude: number) => {
+  const fetchShifts = useCallback(async () => {
+    if (!location) return
     try {
       setLoading(true);
-      const apiUrl = `https://mobile.handswork.pro/api/shifts/map-list-unauthorized?latitude=${latitude}&longitude=${longitude}`;
+      const apiUrl = `https://mobile.handswork.pro/api/shifts/map-list-unauthorized?latitude=${location.latitude}&longitude=${location.longitude}`;
       const response = await fetch(apiUrl);
 
       if (!response.ok) {
@@ -64,7 +58,13 @@ const ShiftsScreen = ({ navigation }: TRootScreenProps<PATHS.SHIFTS>) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [location]);
+
+  useEffect(() => {
+    if (location) {
+      fetchShifts()
+    }
+  }, [fetchShifts, location]);
 
   const handleItemPress = useCallback((shift: Shifts.Shift) => () => {
     navigation.navigate(PATHS.SHIFT, { shift })
@@ -85,9 +85,9 @@ const ShiftsScreen = ({ navigation }: TRootScreenProps<PATHS.SHIFTS>) => {
         <Text style={styles.errorText}>{error}</Text>
         <Text
           style={styles.retryText}
-          onPress={() => {
-            setLoading(true);
+          onPress={async () => {
             setError(null);
+            await fetchShifts()
           }}
         >
           Попробовать снова

@@ -1,6 +1,6 @@
+import React from "react";
 import { FlatList, Image, ListRenderItem, Pressable, Text, View } from "react-native";
 import styles from "./styles";
-import React from "react";
 import { formatDate, formatPrice } from "../../helpers";
 
 const ListEmptyComponent = () =>
