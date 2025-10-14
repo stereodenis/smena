@@ -26,4 +26,9 @@ namespace Shifts {
     "customerRating": number // 4.5,
     "isPromotionEnabled": boolean // false
   }
+
+  interface Location {
+    latitude: number
+    longitude: number
+  }
 }
